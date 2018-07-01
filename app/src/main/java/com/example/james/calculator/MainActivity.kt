@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-    val operationList: MutableList<String> = arrayListOf()
+    val operationList: MutableList<String> = arrayListOf() //create a string array that allows me to add and remove elements
     val numberCache: MutableList<String> = arrayListOf()
 
     fun makeString(list: List<String>,joiner: String = "") : String {
@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         val button = view as Button
         val numberString = button.text;
 
+        numberCache.add(numberString.toString())
         val text = makeString(numberCache)
         updateDisplay(text)
     }

@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Calculator</string>
+    <string name="ERR">ERROR</string>
+    <string name="underscore">_</string>
+    <string name="functionDisplayError">Please hit CE again</string>
 </resources>

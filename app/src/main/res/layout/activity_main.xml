@@ -144,11 +144,11 @@
 
                 <TextView
                     android:id="@+id/tvEquals"
-                    style="@style/ActionButtonStyle"
+                    style="@style/NumberButtonStyle"
                     android:text="=" />
 
             </LinearLayout>
-        
+
 
     </LinearLayout>
 </LinearLayout>

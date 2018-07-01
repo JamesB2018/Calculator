@@ -11,7 +11,7 @@ import android.annotation.SuppressLint
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
-    internal var valueOne = 0.0
+    var valueOne = 0.0
     internal var valueTwo = 0.0
     internal var operatorLast = false
     internal var lastOperator: String? = ""
@@ -111,7 +111,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.tvPlus, R.id.tvMinus, R.id.tvMul, R.id.tvDivide -> if (mDisplay.text.length != 0 && mDisplay.text.toString().startsWith("E")) {
 
-            } else if (mDisplay.text.length == 0) {
+            } else if (mDisplay.text.isEmpty()) {
                 mDisplay.setText(R.string.ERR)
                 mFunctionDisplay.setText(R.string.functionDisplayError)
 
@@ -139,7 +139,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 operatorLast = true
 
             }
-            R.id.tvClear -> if (mDisplay.text.length != 0 && mDisplay.text.toString().startsWith("E")) {
+            R.id.tvClear -> if (mDisplay.text.isNotEmpty() && mDisplay.text.toString().startsWith("E")) {
 
             } else if (operatorLast) {
                 operatorLast = false
@@ -156,12 +156,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 mDisplay.text = displayClear
                 if (mDisplay.text.length == 0 && valueOne != 0.0) {
                     operatorLast = true
-                } else if (mDisplay.text.length == 0 && valueOne == 0.0) {
+                } else if (mDisplay.text.isEmpty() && valueOne == 0.0) {
                     mDisplay.setText(R.string.underscore)
                 }
             }
             R.id.tvClose -> reset(mDisplay, mFunctionDisplay)
-            R.id.tvEquals -> if (mDisplay.text.length != 0 && mDisplay.text.toString().startsWith("E")) {
+            R.id.tvEquals -> if (mDisplay.text.isNotEmpty() && mDisplay.text.toString().startsWith("E")) {
 
             } else {
                 if (!validInput(mDisplay)) {

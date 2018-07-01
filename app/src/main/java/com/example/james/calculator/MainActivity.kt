@@ -5,11 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
-import android.widget.Button
 import android.widget.TextView
-import android.R.id.button3
-import android.R.id.button2
-import android.R.id.button1
 import android.annotation.SuppressLint
 
 
@@ -54,41 +50,41 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             operatorLast = savedInstanceState.getBoolean("OPERATOR_LAST")
         }
 
-        val mZero = findViewById<Button>(R.id.tvZero)
+        val mZero = findViewById<TextView>(R.id.tvZero)
         mZero.setOnClickListener(this)
-        val mOne = findViewById<Button>(R.id.tvOne)
+        val mOne = findViewById<TextView>(R.id.tvOne)
         mOne.setOnClickListener(this)
-        val mTwo = findViewById<Button>(R.id.tvTwo)
+        val mTwo = findViewById<TextView>(R.id.tvTwo)
         mTwo.setOnClickListener(this)
-        val mThree = findViewById<Button>(R.id.tvThree)
+        val mThree = findViewById<TextView>(R.id.tvThree)
         mThree.setOnClickListener(this)
-        val mFour = findViewById<Button>(R.id.tvFour)
+        val mFour = findViewById<TextView>(R.id.tvFour)
         mFour.setOnClickListener(this)
-        val mFive = findViewById<Button>(R.id.tvFive)
+        val mFive = findViewById<TextView>(R.id.tvFive)
         mFive.setOnClickListener(this)
-        val mSix = findViewById<Button>(R.id.tvSix)
+        val mSix = findViewById<TextView>(R.id.tvSix)
         mSix.setOnClickListener(this)
-        val mSeven = findViewById<Button>(R.id.tvSeven)
+        val mSeven = findViewById<TextView>(R.id.tvSeven)
         mSeven.setOnClickListener(this)
-        val mEight = findViewById<Button>(R.id.tvEight)
+        val mEight = findViewById<TextView>(R.id.tvEight)
         mEight.setOnClickListener(this)
-        val mNine = findViewById<Button>(R.id.tvNine)
+        val mNine = findViewById<TextView>(R.id.tvNine)
         mNine.setOnClickListener(this)
-        val mPlus = findViewById<Button>(R.id.tvPlus)
+        val mPlus = findViewById<TextView>(R.id.tvPlus)
         mPlus.setOnClickListener(this)
-        val mMinus = findViewById<Button>(R.id.tvMinus)
+        val mMinus = findViewById<TextView>(R.id.tvMinus)
         mMinus.setOnClickListener(this)
-        val mMult = findViewById<Button>(R.id.tvMul)
+        val mMult = findViewById<TextView>(R.id.tvMul)
         mMult.setOnClickListener(this)
-        val mDiv = findViewById<Button>(R.id.tvDivide)
+        val mDiv = findViewById<TextView>(R.id.tvDivide)
         mDiv.setOnClickListener(this)
-        val mDecimal = findViewById<Button>(R.id.tvDecimal)
+        val mDecimal = findViewById<TextView>(R.id.tvDecimal)
         mDecimal.setOnClickListener(this)
-        val mClear = findViewById<Button>(R.id.tvDecimal)
+        val mClear = findViewById<TextView>(R.id.tvDecimal)
         mClear.setOnClickListener(this)
-        val mCompleteClear = findViewById<Button>(R.id.tvClear)
+        val mCompleteClear = findViewById<TextView>(R.id.tvClear)
         mCompleteClear.setOnClickListener(this)
-        val mEquals = findViewById<Button>(R.id.tvEquals)
+        val mEquals = findViewById<TextView>(R.id.tvEquals)
         mEquals.setOnClickListener(this)
     }
 
@@ -108,7 +104,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     if (operatorLast) {
                         mDisplay.text = ""
                     }
-                    mDisplay.append((v as Button).text.toString())
+                    mDisplay.append((v as TextView).text.toString()) //maybe a textview?
                 }
                 operatorLast = false
 
@@ -123,14 +119,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 if (validInput(mDisplay)) {
                     if (lastOperator == "") {
                         valueOne = java.lang.Double.parseDouble(mDisplay.text.toString())
-                        lastOperator = (v as Button).text.toString()
+                        lastOperator = (v as TextView).text.toString()
                         mDisplay.setText(R.string.underscore)
                         mFunctionDisplay.text = valueOne.toString()
                         mFunctionDisplay.append(" " + lastOperator!!)
                     } else {
                         valueTwo = java.lang.Double.parseDouble(mDisplay.text.toString())
                         evaluate()
-                        lastOperator = (v as Button).text.toString()
+                        lastOperator = (v as TextView).text.toString()
                         mFunctionDisplay.text = valueOne.toString()
                         mFunctionDisplay.append(" " + lastOperator!!)
                         mDisplay.setText(R.string.underscore)
